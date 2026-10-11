@@ -1,0 +1,10 @@
+# Exact versions ("pinned") so every run of the benchmark uses the same code.
+# Install with:  .venv/bin/pip install -r requirements.txt
+# Tested on Python 3.14.
+
+# Stages 2-5: the review job as a graph
+langgraph==1.2.14
+# Stage 3: lets LangGraph save checkpoints into a SQLite file
+langgraph-checkpoint-sqlite==3.1.1
+# Stages 6-7: Temporal's Python SDK (workflows, activities, worker)
+temporalio==1.34.0

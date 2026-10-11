@@ -1,0 +1,17 @@
+# --- Python's private toolbox (rebuild it with: pip install -r requirements.txt) ---
+.venv/
+
+# --- Python's auto-generated speed-up files ---
+__pycache__/
+*.pyc
+
+# --- Things our benchmark creates while running (not source code) ---
+# LangGraph checkpoint databases (Stage 3) and SQLite's temporary side files
+*.sqlite
+*.sqlite-*
+*.db
+# JSON reports written by each version
+output/
+
+# --- macOS clutter ---
+.DS_Store

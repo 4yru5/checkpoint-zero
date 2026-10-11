@@ -1,0 +1,54 @@
+# Glossary
+
+One line per term, in the order I learned them.
+
+- **git**: tool that saves snapshots of a project over time.
+- **commit**: one saved snapshot in git.
+- **virtual environment (venv)**: a private folder of Python libraries for one project, so projects don't clash.
+- **.gitignore**: a list of file/folder patterns that git should not track.
+- **wildcard (`*`)**: a symbol meaning "anything here"; `*.sqlite` matches every `.sqlite` file.
+- **library / package**: reusable code someone else wrote that we install.
+- **pip**: Python's package installer.
+- **requirements.txt**: the list of packages (and versions) a project needs.
+- **pinning**: fixing an exact version (`==1.2.14`) so installs are repeatable.
+- **smoke test**: a tiny "does it even turn on?" check.
+- **dependency**: a library that another library needs in order to work; pip installs it automatically.
+- **test fixture**: a fixed, known input used for testing.
+- **code injection**: user text gets run as code (e.g. `eval`).
+- **command injection**: user text reaches the OS shell (e.g. `shell=True`).
+- **false positive**: a scanner alarm on something that's actually safe.
+- **Markdown (.md)**: plain text with light formatting that GitHub renders nicely.
+- **hypothesis**: a guess written down *before* an experiment.
+- **SIGKILL / kill -9**: an OS signal that ends a process instantly, with no cleanup.
+- **RAM**: the computer's short-term memory; wiped when a process dies.
+- **regex**: a pattern language for matching text (e.g. `\beval\s*\(`).
+- **event log**: an append-only record of what happened, used here to measure lost work.
+- **crash injection**: deliberately crashing a program at a chosen point to test recovery.
+- **LangGraph**: a library for building programs as graphs of steps (nodes) that share a state.
+- **state**: the data passed between graph nodes.
+- **node**: one step (a function) in a graph.
+- **edge / conditional edge**: the arrow to the next node; a conditional edge chooses using a function.
+- **checkpointer**: the component that saves graph state after each step (here `SqliteSaver`).
+- **checkpoint**: one saved copy of state + "which node is next".
+- **SQLite**: a small database stored in a single file.
+- **thread_id**: the name of a LangGraph save slot; same id = resume the same run.
+- **superstep**: one round of node execution in LangGraph; checkpoints are saved after each.
+- **granularity**: how big each step is; smaller steps = less work lost per crash.
+- **side effect**: anything a step does to the outside world (writing a file, sending an email).
+- **idempotent**: doing it twice has the same result as doing it once.
+- **atomic**: happens completely or not at all, never half-done.
+- **os.replace / atomic rename**: swap a finished temp file into place in one indivisible move.
+- **fsync**: force written bytes from memory onto the physical disk.
+- **at-least-once**: every step is guaranteed to run, but might run more than once after a crash.
+- **Temporal**: a "durable execution" platform; a server records workflow history so work survives crashes.
+- **workflow (Temporal)**: deterministic code that defines the order of steps.
+- **activity (Temporal)**: one real-world step that can fail and be retried.
+- **worker**: a process that polls the Temporal server for tasks and runs them.
+- **task queue**: a named line of work that workers poll (`checkpoint-zero`).
+- **event history**: Temporal's saved log of everything a workflow has done.
+- **replay**: re-running workflow code against history to rebuild its state after a crash.
+- **deterministic**: same input → same decisions, every time.
+- **start_to_close_timeout**: the max time one activity attempt may take.
+- **heartbeat / heartbeat_timeout**: periodic "still alive" pings; if they stop for this long, the attempt is failed.
+- **retry policy**: rules for retrying a failed activity (wait time, max attempts).
+- **sticky queue**: a worker-specific queue that keeps a cached workflow on the same worker; causes a pause if that worker dies.
